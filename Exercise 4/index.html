@@ -19,23 +19,23 @@
     <!-- 3) Let the user enter a class (create some example classes) and attach it -->
     <div>
       <input type="text" v-model="className">
-      <div :class="{className}"></div>
+      <div :class="[{present: true}, className]"></div>
     </div>
     <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
     <div>
-      <input type="text">
-      <input type="text">
-      <div></div>
+      <input type="text" v-model="className">
+      <input type="text" v-model="isPresent">
+      <div :class="[{present: isPresent}, className]"></div>
     </div>
     <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
     <div>
-      <input type="text">
-      <div></div>
+      <input type="text" v-model="myStyle.backgroundColor">
+      <div :style="myStyle"></div>
     </div>
     <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
     <div>
-      <button>Start Progress</button>
-      <div></div>
+      <button @click="progressBarOn">Start Progress</button>
+      <div :class="['progress-bar']" :style="progressBar"></div>
     </div>
   </div> 
 
